@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Alert!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+    <div>
+        <h2>New Alert</h2>
+        <p>You have new alerts. Details:</p>
+        <div class="text" th:utext="${#strings.unescapeJava(#strings.replace(#strings.escapeJava(message),'\n','&lt;br /&gt;'))}"></div>
+    </div>
+
+    <div>
+        <p><a href="http://github.ch/" target="_blank">github</a>. All right reserved. 2018.</p>
+    </div>
+</body>
+
+</html>

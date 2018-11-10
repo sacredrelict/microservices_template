@@ -1,0 +1,37 @@
+package com.github.sacredrelict.auth.service.impl;
+
+import com.github.sacredrelict.auth.domain.AccountRole;
+import com.github.sacredrelict.auth.repositories.AccountRoleRepository;
+import com.github.sacredrelict.auth.service.AccountRoleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+/**
+ * Service layer implementation for AccountRole.
+ */
+@Service
+public class AccountRoleServiceImpl implements AccountRoleService {
+
+    @Autowired
+    private AccountRoleRepository accountRoleRepository;
+
+    @Override
+    public AccountRole getById(Long id) {
+
+        return accountRoleRepository.findOne(id);
+    }
+
+    /**
+     * Search all account roles by account id.
+     * @param accountId - user id.
+     * @return - list of Account Roles.
+     */
+    @Override
+    public List<AccountRole> getRolesByAccountId(Long accountId) {
+
+        return accountRoleRepository.findByAccountId(accountId);
+    }
+
+}
